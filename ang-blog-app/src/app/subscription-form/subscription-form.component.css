@@ -1,5 +1,12 @@
 .card{
     background-color: var(--secondary-color);
-    border: none;
-    box-shadow: 0px 0px 33px -10 rgba(71, 114, 254, 0.3);
+   width: 1200px;
+}
+
+input[type = text], input[type = email] {
+    width: 100%
+}
+
+.subs-text{
+    width:500px;
 }
