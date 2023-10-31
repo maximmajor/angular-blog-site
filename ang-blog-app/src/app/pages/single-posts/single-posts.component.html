@@ -2,24 +2,25 @@
     <div class="row">
         <div class="col-md-9">
             <div class="card shadow-effect">
-                <img src="https://res.cloudinary.com/koyo-nation/image/upload/v1697603457/blog4_kjdgp9.webp" alt="" class="card-img-top img-fluid">
+                <img src="{{postData.postImgPath}}" alt="" class="card-img-top img-fluid">
                 <div class="card-body">
-                    <small class="bg-light text-danger text-center">Design</small>
-                    <small class="bg-light text-success text-center ml-2">Featured</small>
-                    <small class="bg-light text-info text-center ml-2">Views - 100,256</small>
-                    <small class="bg-light text-warning text-center ml-2"> LAST UPDATED - SEP 20, 2021</small>
-                    <h1 class="mt-3 mb-3"> HOW TO START A BLOG IN 2021 EDITED NEW CATEGORY</h1>
-                    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem itaque voluptates tempore ratione ipsam cum id sunt dolore ea animi praesentium, fugiat magnam aliquam earum, quasi, laboriosam consectetur nesciunt hic impedit maxime quod. Illo quod fugiat deleniti unde laudantium dignissimos autem. Pariatur reiciendis laudantium sequi adipisci commodi odio qui quaerat quos voluptatem, sit ullam consequuntur at, temporibus est perferendis asperiores a, sed illo corporis sapiente? In magnam maiores saepe inventore labore hic assumenda officiis? Tempore cupiditate reiciendis corporis aperiam delectus non, ut assumenda provident voluptas suscipit deserunt at, eaque voluptatem maxime amet veritatis nisi, quasi maiores? Consequuntur ut recusandae eum nostrum, ex exercitationem, esse eius quasi tenetur animi sunt? Dolores similique vitae esse odio laborum vero tempore nihil tenetur exercitationem maxime ipsum earum consequatur explicabo debitis voluptatum illum ullam assumenda, veniam doloremque. Repellat doloribus ad possimus quibusdam dolor magnam delectus adipisci vero excepturi! Nemo assumenda amet voluptatum ullam sequi ad, et eos? Ducimus ea cumque recusandae numquam perferendis doloribus, libero nihil aspernatur accusamus culpa. Esse, rem dicta. Enim quisquam perspiciatis, nemo, ipsum in obcaecati nisi alias doloremque sapiente assumenda, soluta eius. Possimus libero iusto adipisci qui. Incidunt, fugit eum. Soluta asperiores error voluptatibus architecto corrupti quam rem eos eveniet nesciunt aliquam perspiciatis libero enim assumenda ea, fugiat voluptatum voluptatem pariatur aliquid totam vel nostrum repudiandae corporis dicta? Incidunt, veritatis eius. Debitis id possimus illum nam quam, aut asperiores. Rerum quibusdam placeat quam cumque saepe hic sunt suscipit dolorum iusto accusamus libero fuga, minus consequatur quas. Optio et saepe nulla cumque qui explicabo temporibus iure culpa. Nihil fugit suscipit nulla. Explicabo quibusdam, doloremque quos deleniti sint similique voluptatum, amet eius ex a, repudiandae voluptas voluptates! Eaque tenetur dolore facere accusantium nihil nostrum minima earum nam unde magnam? Quia explicabo minima cupiditate quaerat dolores maiores voluptate voluptatem error facilis, necessitatibus repellat consequuntur delectus possimus beatae consequatur ipsam nisi debitis doloribus suscipit fugiat quasi quisquam quae in? Harum saepe nulla eos sapiente, consequatur obcaecati dolorum dolorem vero aliquid dolores, praesentium optio natus, provident incidunt laboriosam! Soluta enim laudantium neque reiciendis corporis ratione et laborum assumenda delectus aspernatur ipsam ipsum distinctio velit asperiores aut vero sit sint voluptas nihil, exercitationem cupiditate veritatis officia itaque repellat! Est aliquam iure, cumque voluptate inventore itaque ipsa aperiam dolorem nisi, officia ducimus dolorum ut atque, delectus incidunt optio reiciendis beatae dicta omnis! Minus deleniti nisi, expedita saepe quaerat eligendi labore optio nobis deserunt harum dolore et nemo ratione, velit repudiandae cum officia beatae excepturi repellendus rem ullam neque ab sapiente! Illo vel facilis sequi esse tempora! Ratione reprehenderit quisquam cupiditate perspiciatis sunt doloremque hic consectetur, quis odio omnis reiciendis rem, aliquid aperiam voluptatum? Unde quibusdam nobis amet enim et maxime recusandae blanditiis incidunt voluptas mollitia voluptate, quos, temporibus quas possimus adipisci. Nihil corporis eveniet adipisci quos aperiam unde rerum repellat cum ullam, nam reiciendis aut debitis error cupiditate consectetur blanditiis officiis iure optio voluptas accusamus. Ducimus optio dolorum obcaecati ipsa officia eum aut sapiente, minima quas illum expedita blanditiis nulla reprehenderit. Nesciunt commodi error laboriosam debitis. Explicabo, accusamus!
-                    </P>
+                    <small class="bg-light text-danger text-center">{{postData.category.category}}</small>
+                    <small class="bg-light text-success text-center ml-2" *ngIf ='postData.isFeatured'>Featured</small>
+                    <small class="bg-light text-info text-center ml-2">Views - {{postData.views}}</small>
+                    <small class="bg-light text-warning text-center ml-2"> LAST UPDATED - {{ postData.createdAt.toMillis() | date: 'medium' }}</small>
+                    <h1 class="mt-3 mb-3"> {{postData.title}}</h1>
+                    <P>{{postData.content}} </P>
                 </div>
             </div>
             <app-comment-form></app-comment-form>
             <app-comment-list></app-comment-list>
         </div>
         <div class="col-md-3">
-            <app-post-card></app-post-card>
-            <app-post-card></app-post-card>
-            <app-post-card></app-post-card>
+            <div *ngFor="let similarPost of similarPostArray">
+                <app-post-card [postData] = "similarPost"></app-post-card>
+            </div>
+           
+
         </div>
 
     </div>
