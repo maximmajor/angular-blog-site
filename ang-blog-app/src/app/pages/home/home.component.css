@@ -1,6 +1,18 @@
 .featured-section {
-    padding-left: 90px;
-    padding-right: 90px;
-    padding-bottom: 90px;
+    padding-left: 130px;
+    /* Adjust padding for smaller screens */
+    padding-right: 130px;
+    padding-bottom: 130px;
+    /* Use responsive units like rem for padding */
     background-color: var(--primary-color);
+}
+
+@media (max-width: 767px) {
+    .featured-section {
+        padding-left: 1rem;
+        /* Adjust padding for smaller screens */
+        padding-right: 2rem;
+        padding-bottom: 4rem;
+        /* Adjust padding for smaller screens */
+    }
 }
