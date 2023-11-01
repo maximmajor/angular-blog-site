@@ -1,4 +1,4 @@
-import { Category } from './../../../../../../ang-blog-dashboard/ang-blog-dashboard/src/app/models/category';
+
 import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from 'src/app/services/categories.service';
 

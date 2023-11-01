@@ -34,7 +34,6 @@ constructor(private subService: SubscribersService){
       this.subService.addSubs(subData)
       this.isSubscribed = true
     }else{
-      console.log('email Address already in use')
       this.isEmailError = true
     }
   })

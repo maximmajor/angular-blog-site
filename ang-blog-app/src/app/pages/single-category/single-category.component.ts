@@ -14,7 +14,6 @@ constructor(private route: ActivatedRoute, private postService: PostsService){}
 
   ngOnInit(): void {
     this.route.params.subscribe(val => {
-      console.log(val)
       this.postService.loadCategoryPosts(val['id']). subscribe(post => {
         this.postsArray = post
 

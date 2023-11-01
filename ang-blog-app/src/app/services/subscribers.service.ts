@@ -10,7 +10,6 @@ export class SubscribersService {
 
   addSubs(subData: any){
     this.afs.collection('subscribers').add(subData).then(() => {
-console.log('subscribers added successfully')
     })
 
   }
