@@ -6,9 +6,11 @@
             <p class="text-white"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
         </div>
         </div>
+        
         <div class="row">
+            
             <div class="col-md-4 mt-3" *ngFor="let featuredPost of feauredPostsArray">
-                <app-post-card [postData] = "featuredPost"></app-post-card>
+                <app-post-card [postData] = "featuredPost" ></app-post-card>
             </div>
            
         </div>
