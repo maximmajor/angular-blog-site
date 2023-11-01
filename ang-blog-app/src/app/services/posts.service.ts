@@ -14,7 +14,7 @@ export class PostsService {
 
   loadFeatured(){
       
-    return this.afs.collection('posts', ref => ref.where('isFeatured', '==', true).limit(4)).snapshotChanges().pipe(
+    return this.afs.collection('posts', ref => ref.where('isFeatured', '==', true).limit(3)).snapshotChanges().pipe(
        map((actions: any[]) => {
         return actions.map( (a: { payload: { doc: { data: () => any; id: any; }; }; }) => {
           const data = a.payload.doc.data()
