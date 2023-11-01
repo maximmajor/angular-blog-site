@@ -14,4 +14,8 @@ console.log('subscribers added successfully')
     })
 
   }
+
+  checkSubs(subEmail: any){
+    return this.afs.collection('subscribers', ref => ref.where('email', '==', subEmail)).get()
+  }
 }

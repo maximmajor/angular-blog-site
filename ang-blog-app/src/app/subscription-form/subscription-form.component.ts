@@ -8,6 +8,9 @@ import { SubscribersService } from '../services/subscribers.service';
   styleUrls: ['./subscription-form.component.css']
 })
 export class SubscriptionFormComponent implements OnInit {
+isEmailError: boolean = false;
+isSubscribed: boolean = false;
+
 
 constructor(private subService: SubscribersService){
 
@@ -20,11 +23,21 @@ constructor(private subService: SubscribersService){
 
   onSubmit(formVal: any){
 
-    const subDate: Sub = {
+    const subData: Sub = {
         name: formVal.name,
         email: formVal.email
     }
-    this.subService.addSubs(subDate)
+    // this.subService.addSubs(subDate)
+
+    this.subService.checkSubs(subData.email).subscribe(val => {
+      if(val.empty){ 
+      this.subService.addSubs(subData)
+      this.isSubscribed = true
+    }else{
+      console.log('email Address already in use')
+      this.isEmailError = true
+    }
+  })
 
 
 

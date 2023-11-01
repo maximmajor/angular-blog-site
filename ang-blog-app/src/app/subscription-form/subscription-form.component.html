@@ -4,7 +4,15 @@
         <div class="text-center mt-3 ">
             <h3 >SUBSCRIPTION FORM</h3>
             <p class=" subs-text w-100 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit enim quis quae, omnis ad quos officiis <br>iusto iste at rerum saepe quidem tempora illo dolorum provident veritatis nihil? Nisi, mollitia!</p>
-            <form  class="row mt-3" #subForm = ngForm (ngSubmit) = 'onSubmit(subForm.value)'>
+            
+            <div class="alert alert-danger mt-3" *ngIf="isEmailError">
+                Email is Already In Used
+            </div>
+
+            <div class="alert alert-info mt-3" *ngIf="isSubscribed">
+                Thank you for subscribing to our newsletter service. Stay tuned for Awesome blog posts.....!
+            </div>
+            <form  class="row mt-3" #subForm = ngForm (ngSubmit) = 'onSubmit(subForm.value)' *ngIf="!isSubscribed">
                 <div class="form-group col-md-5">
                     <input type="text" class="form-control  mt-2" placeholder="Your Name"
                     name="name" #Name="ngModel" ngModel required [ngClass]="{'is-invalid': Name.touched && Email.invalid}">
