@@ -1,20 +1,26 @@
-<section class="featured-section">
-    <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 text-center mt-5">
-            <h2 class="text-white">Feature Post</h2>
-            <p class="text-white"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
-        </div>
-        </div>
-        
+<section class="ttt">
+    <div class="container">
         <div class="row">
-            
-            <div class="col-md-4 mt-3" *ngFor="let featuredPost of feauredPostsArray">
-                <app-post-card [postData] = "featuredPost" ></app-post-card>
+            <div class="col-md-12 text-center mt-4">
+                <h2 class="text-white">Feature Post</h2>
+                <p class="text-white"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
             </div>
-           
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-4 mt-3" *ngFor="let featuredPost of feauredPostsArray">
+                <app-post-card [postData]="featuredPost"></app-post-card>
+            </div>
         </div>
     </div>
+    <div class="mt-4 nav-link  s-h">
+    <h1 class="">awesome section</h1>
+    </div>
+
+    
+
 </section>
 
 <section class="container mt-5">
@@ -24,9 +30,9 @@
     </div>
     <div class="row">
         <div class="col-md-4 mt-3" *ngFor="let latestPost of latestPostsArray">
-            <app-post-card [postData] = "latestPost"></app-post-card>
+            <app-post-card [postData]="latestPost"></app-post-card>
         </div>
-     
+
     </div>
 
 </section>
